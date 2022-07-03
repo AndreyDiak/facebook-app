@@ -1,13 +1,12 @@
 import {useSession} from "next-auth/react";
 import Image from "next/image";
-import { v4 as uuidv4 } from "uuid";
 import {EmojiHappyIcon} from "@heroicons/react/outline";
 import {CameraIcon, VideoCameraIcon} from "@heroicons/react/solid"
 import {useEffect, useRef, useState} from "react";
-import { db, storage } from "../firebase"
-import { ref, uploadString, getDownloadURL } from "firebase/storage";
-import { getDatabase, onValue, ref as rf, child, get } from "firebase/database";
-import {doc, setDoc, serverTimestamp, updateDoc, collection, addDoc} from "firebase/firestore"
+import {db, storage} from "../firebase"
+import {getDownloadURL, ref, uploadString} from "firebase/storage";
+import {child, get, getDatabase, ref as rf} from "firebase/database";
+import {doc, serverTimestamp, updateDoc, collection, addDoc} from "firebase/firestore"
 
 export const InputBox = () => {
   const {data} = useSession();

@@ -1,7 +1,6 @@
 import {Stories} from "./Stories";
 import {InputBox} from "./InputBox";
 import {Posts} from "./Posts";
-import {PostsType} from "./Post";
 
 export const Feed = () => {
   return (

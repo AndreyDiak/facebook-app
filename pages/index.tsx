@@ -1,4 +1,4 @@
-import type { NextPage } from 'next'
+import type {NextPage} from 'next'
 import Head from 'next/head'
 import {Header} from "../components/Header";
 import {Login} from "../components/Login";
@@ -6,10 +6,6 @@ import {getSession} from "next-auth/react";
 import {Sidebar} from "../components/Sidebar";
 import {Feed} from "../components/Feed";
 import {Widgets} from "../components/Widgets";
-import {useCollection} from "react-firebase-hooks/firestore";
-import {getFirestore, collection, doc, getDocs, getDoc, onSnapshot, query, orderBy} from "firebase/firestore";
-import {db} from "../firebase";
-import {PostsType} from "../components/Post";
 
 // @ts-ignore
 const Home: NextPage  = ({ session }) => {

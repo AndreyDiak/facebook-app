@@ -1,7 +1,6 @@
-import { useCollection } from "react-firebase-hooks/firestore"
-import {getFirestore, collection, onSnapshot, orderBy} from "firebase/firestore"
+import {collection, onSnapshot, orderBy} from "firebase/firestore"
 import {db} from "../firebase";
-import {Post, PostsType} from "./Post";
+import {Post} from "./Post";
 import {useEffect, useState} from "react";
 import {query} from "@firebase/database";
 
@@ -12,7 +11,9 @@ export const Posts = () => {
   useEffect(
       () =>
           onSnapshot(
+              // @ts-ignore
               query(collection(db, 'posts'), orderBy("timestamp", "desc")),
+              // @ts-ignore
               (snapshot) => {
                 setPosts(snapshot.docs);
               }
