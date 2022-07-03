@@ -3,7 +3,7 @@ import {InputBox} from "./InputBox";
 import {Posts} from "./Posts";
 import {PostsType} from "./Post";
 
-export const Feed = ({ ...posts } : PostsType[]) => {
+export const Feed = () => {
   return (
     <div
       className="flex-grow h-screen
@@ -12,7 +12,7 @@ export const Feed = ({ ...posts } : PostsType[]) => {
       <div className="mx-auto max-w-md md:max-w-lg lg:max-w-2xl">
         <Stories />
         <InputBox />
-        <Posts {...posts} />
+        <Posts />
       </div>
     </div>
   )

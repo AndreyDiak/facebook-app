@@ -12,9 +12,7 @@ import {db} from "../firebase";
 import {PostsType} from "../components/Post";
 
 // @ts-ignore
-const Home: NextPage  = ({ session, posts }) => {
-
-  console.log(posts)
+const Home: NextPage  = ({ session }) => {
 
   if(!session) return <Login />
 
@@ -31,7 +29,7 @@ const Home: NextPage  = ({ session, posts }) => {
         {/* Sidebar */}
         <Sidebar />
         {/* Feed */}
-        <Feed {...posts} />
+        <Feed />
         {/* Widgets*/}
         <Widgets />
       </main>
@@ -42,16 +40,9 @@ const Home: NextPage  = ({ session, posts }) => {
 export const getServerSideProps = async (context: any) => {
   const session = await getSession(context);
 
-  let posts: any[] = [];
-
-  onSnapshot(query(collection(db, 'posts'), orderBy('timestamp', 'desc')), snapshot => {
-      posts = snapshot.docs;
-  })
-
   return {
     props: {
       session,
-      posts: posts
     },
   };
 }
