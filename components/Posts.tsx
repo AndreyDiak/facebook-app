@@ -32,7 +32,9 @@ export const Posts = () => {
     {posts
         ? posts.map((post, index) => <div key={index}>
             <Post
+              //@ts-ignore
               key={post.id}
+              //@ts-ignore
               {...post.data()}
             />
         </div>)
